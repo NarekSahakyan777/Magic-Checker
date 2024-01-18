@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    android:padding="30dp"
+    tools:context=".logIn">
+    <TextView
+        android:id="@+id/logIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/loginLayout"
+        android:padding="30dp"
+        >
+
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/loginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/personName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:hint="Name"
+            android:textColorHint="@color/black"
+            android:inputType="textPersonName|textCapWords"/>
+        <EditText
+            android:id="@+id/signInEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:hint="Email"
+            android:textColorHint="@color/black"
+            android:inputType="textEmailAddress"/>
+        <EditText
+            android:id="@+id/signInPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:maxLength="12"
+            android:hint="Password"
+            android:textColorHint="@color/black"
+            android:inputType="textPassword"/>
+        <EditText
+            android:id="@+id/confirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:maxLength="12"
+            android:hint="Confirm Password"
+            android:textColorHint="@color/black"
+            android:inputType="textPassword"/>
+        <Button
+            android:id="@+id/signIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/deepskyblue"
+            android:text="Sign In"
+            android:textColor="@color/black"
+            android:textSize="30dp">
+        </Button>
+    </LinearLayout>
+
+</RelativeLayout>

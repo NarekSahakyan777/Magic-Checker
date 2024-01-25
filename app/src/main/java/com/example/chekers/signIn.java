@@ -1,5 +1,6 @@
 package com.example.chekers;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -8,32 +9,73 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 public class signIn extends AppCompatActivity {
     public EditText personName;
 
-    public EditText signInEmail;
-    public  EditText signInPassword;
-    public EditText confirmPassword;
-    public Button signIn;
-
+    public EditText signInEmail, signInPassword, confirmPassword;
+    private Button signInButton;
+    private FirebaseAuth auth;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-        personName = findViewById(R.id.personName);
-        signInEmail = findViewById(R.id.signInEmail);
-        signInPassword = findViewById(R.id.signInPassword);
-        confirmPassword = findViewById(R.id.confirmPassword);
-        signIn = findViewById(R.id.signIn);
-        signIn.setOnClickListener(new View.OnClickListener() {
+        auth = FirebaseAuth.getInstance();
+        signInEmail = findViewById(R.id.signIn_email);
+        signInPassword = findViewById(R.id.signIn_password);
+        signInButton = findViewById(R.id.signIn_button);
+        confirmPassword = findViewById(R.id.signIn_confirmpassword);
+
+        signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent in = new Intent(signIn.this, playGame.class);
-                startActivity(in);
+            public void onClick(View view) {
+                String user = signInEmail.getText().toString().trim();
+                String pass = signInPassword.getText().toString().trim();
+                String confirmpass = confirmPassword.getText().toString().trim();
+
+                if (user.isEmpty()) {
+                    signInEmail.setError("Email cannot be empty");
+                } else if (pass.isEmpty()) {
+                    signInPassword.setError("Password cannot be empty");
+                } else if (confirmpass.isEmpty()) {
+                    confirmPassword.setError("Please confirm the password");
+                } else if (!confirmpass.equals(pass)) {
+                    confirmPassword.setError("Password must match");
+                } else {
+                    auth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                auth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(signIn.this, "SignUp Successful", Toast.LENGTH_SHORT).show();
+
+                                            Intent intent = new Intent(signIn.this, EmailVerify.class);
+                                            intent.putExtra("Password", pass);
+                                            startActivity(intent);
+                                            finish();
+                                        } else {
+                                            Toast.makeText(signIn.this, "Email Verification Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            } else {
+                                Toast.makeText(signIn.this, "SignUp Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
             }
         });
+
     }
 }

@@ -27,18 +27,9 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical">
+
         <EditText
-            android:id="@+id/personName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:hint="Name"
-            android:textColorHint="@color/black"
-            android:inputType="textPersonName|textCapWords"/>
-        <EditText
-            android:id="@+id/signInEmail"
+            android:id="@+id/signIn_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -48,7 +39,7 @@
             android:textColorHint="@color/black"
             android:inputType="textEmailAddress"/>
         <EditText
-            android:id="@+id/signInPassword"
+            android:id="@+id/signIn_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -61,7 +52,7 @@
             android:textColorHint="@color/black"
             android:inputType="textPassword"/>
         <EditText
-            android:id="@+id/confirmPassword"
+            android:id="@+id/signIn_confirmpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -74,7 +65,7 @@
             android:textColorHint="@color/black"
             android:inputType="textPassword"/>
         <Button
-            android:id="@+id/signIn"
+            android:id="@+id/signIn_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"

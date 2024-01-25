@@ -13,9 +13,14 @@
         android:theme="@style/Theme.Chekers"
         tools:targetApi="31">
         <activity
-            android:name=".signIn"
+            android:name=".PasswordReset"
             android:exported="false" />
-        <!-- Define playGame activity -->
+        <activity
+            android:name=".EmailVerify"
+            android:exported="false" />
+        <activity
+            android:name=".signIn"
+            android:exported="false" /> <!-- Define playGame activity -->
         <activity
             android:name=".playGame"
             android:exported="false" />

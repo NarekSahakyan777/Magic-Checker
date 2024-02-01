@@ -37,7 +37,6 @@ public class logIn extends AppCompatActivity {
         loginEmail = findViewById(R.id.editEmail);
         auth = FirebaseAuth.getInstance();
         loginPassword = findViewById(R.id.editPassword);
-        forgetPassword = findViewById(R.id.forgPassword);
         loginButton = findViewById(R.id.Login);
         signInRedirectText = findViewById(R.id.signInRedirect);
         remember = findViewById(R.id.remember);

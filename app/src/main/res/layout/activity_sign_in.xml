@@ -74,6 +74,28 @@
             android:textColor="@color/black"
             android:textSize="30dp">
         </Button>
+        <TextView
+            android:id="@+id/signInRedirect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:padding="8dp"
+            android:text="
+            Have an account? Log IN!"
+            android:textColor="@color/blue"
+            android:textSize="13.5sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Goback"
+            android:text="Go Back"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:textSize="13sp"
+            android:textColor="@color/blue"
+            />
     </LinearLayout>
 
 </RelativeLayout>

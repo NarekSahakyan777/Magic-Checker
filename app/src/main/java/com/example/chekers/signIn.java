@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,10 +17,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 public class signIn extends AppCompatActivity {
-    public EditText personName;
+    public TextView GoBack;
 
     public EditText signInEmail, signInPassword, confirmPassword;
     private Button signInButton;
+    private TextView signInRedirectText;
     private FirebaseAuth auth;
 
     @SuppressLint("MissingInflatedId")
@@ -29,6 +31,8 @@ public class signIn extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         auth = FirebaseAuth.getInstance();
         signInEmail = findViewById(R.id.signIn_email);
+        signInRedirectText = findViewById(R.id.signInRedirect);
+        GoBack = findViewById(R.id.Goback);
         signInPassword = findViewById(R.id.signIn_password);
         signInButton = findViewById(R.id.signIn_button);
         confirmPassword = findViewById(R.id.signIn_confirmpassword);
@@ -74,6 +78,18 @@ public class signIn extends AppCompatActivity {
                         }
                     });
                 }
+            }
+        });
+        signInRedirectText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(signIn.this, logIn.class));
+            }
+        });
+        GoBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(signIn.this, MainActivity.class));
             }
         });
 

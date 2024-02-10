@@ -61,7 +61,7 @@ public class signIn extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            Toast.makeText(signIn.this, "SignUp Successful", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(signIn.this, "SignIn Successful", Toast.LENGTH_SHORT).show();
 
                                             Intent intent = new Intent(signIn.this, EmailVerify.class);
                                             intent.putExtra("Password", pass);
@@ -73,7 +73,7 @@ public class signIn extends AppCompatActivity {
                                     }
                                 });
                             } else {
-                                Toast.makeText(signIn.this, "SignUp Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(signIn.this, "SignIn Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

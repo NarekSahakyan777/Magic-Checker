@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1064521219983",
+    "project_id": "login-register-53f97",
+    "storage_bucket": "login-register-53f97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064521219983:android:c20300905f41f59f09d5fa",
+        "android_client_info": {
+          "package_name": "com.example.chekers"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYxAJphnmurQI5nWu2gaELYPF7UUYQwkw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

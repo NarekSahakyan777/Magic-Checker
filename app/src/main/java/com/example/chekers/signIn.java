@@ -45,9 +45,9 @@ public class signIn extends AppCompatActivity {
                 String confirmpass = confirmPassword.getText().toString().trim();
 
                 if (user.isEmpty()) {
-                    signInEmail.setError("Email cannot be empty");
+                    signInEmail.setError("Email can't be empty");
                 } else if (pass.isEmpty()) {
-                    signInPassword.setError("Password cannot be empty");
+                    signInPassword.setError("Password can't be empty");
                 } else if (confirmpass.isEmpty()) {
                     confirmPassword.setError("Please confirm the password");
                 } else if (!confirmpass.equals(pass)) {
